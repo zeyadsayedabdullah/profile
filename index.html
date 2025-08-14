@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyad - E-commerce Automation & Data Science</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(79, 172, 254, 0.12) 0%, transparent 70%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 113, 91, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+        }
+
+        .chart-title {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        #impactChart {
+            max-height: 350px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 172, 254, 0.3);
+            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            color: #b0b0b0;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 220px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #ffffff;
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(79, 172, 254, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(79, 172, 254, 0.5);
+            background: rgba(79, 172, 254, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section & Reviews Section Shared Scroll Styles */
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .service-category {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .service-category:hover {
+            border-color: rgba(79, 172, 254, 0.2);
+            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.05);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-description {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .horizontal-scroll {
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .scroll-list {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .scroll-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .service-item {
+            min-width: 350px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 172, 254, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .service-item h4 {
+            color: #4facfe;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .service-item p {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .scroll-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #4facfe;
+        }
+
+        /* Comparison Section */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .comparison-column {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .comparison-column h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #c0c0c0;
+        }
+
+        .comparison-list li svg {
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .custom-solution {
+            border-color: rgba(79, 172, 254, 0.3);
+            box-shadow: 0 0 50px rgba(79, 172, 254, 0.1);
+        }
+
+        .custom-solution h3 {
+            color: #4facfe;
+        }
+
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+        }
+
+        .about-text strong {
+            color: #4facfe;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 172, 254, 0.3);
+            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.1);
+        }
+
+        .highlight-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Reviews Section Specific Styles */
+        .review-card {
+            min-width: 400px; /* Card width in the scroller */
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+            flex-grow: 1;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Calendar Section */
+        .calendar {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(255, 113, 91, 0.08) 100%);
+            position: relative;
+        }
+
+        .calendar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 113, 91, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .calendar-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .calendar-placeholder {
+            text-align: center;
+        }
+
+        .calendar-placeholder h3 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .calendar-placeholder p {
+            color: #c0c0c0;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .calendar-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .calendar-option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            color: #d0d0d0;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .calendar-option:hover {
+            border-color: rgba(79, 172, 254, 0.3);
+            background: rgba(79, 172, 254, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: #4facfe;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+             .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-highlights {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-category {
+                padding: 2rem;
+            }
+
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-item {
+                min-width: 280px;
+            }
+
+            .review-card {
+                min-width: 300px;
+                padding: 2rem;
+            }
+
+            .chart-container {
+                padding: 1.5rem;
+            }
+
+            .calendar-card {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Stop Wasting 20+ Hours Weekly on Repetitive Tasks</h1>
+                <p class="hero-subtitle">While your competitors manually manage their stores, you'll scale with intelligent automation that works 24/7 - freeing your time to focus on what actually grows your business</p>
+                
+                <!-- Impact Chart -->
+                <div class="chart-container">
+                    <h3 class="chart-title">Work Less, Earn More: The Automation Effect</h3>
+                    <canvas id="impactChart"></canvas>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">Save</span>
+                        <span class="stat-label">20+ Hours Weekly</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Boost</span>
+                        <span class="stat-label">Revenue by 60%+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Set & Forget</span>
+                        <span class="stat-label">24/7 Automation</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#booking" class="btn-primary">Choose Your Automation</a>
+                    <a href="#services" class="btn-secondary">See All Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">Automation Services</h2>
+                <p class="section-subtitle">Choose individual services or combine multiple automations - each system runs automatically 24/7</p>
+                
+                <div class="services-container">
+                    <!-- Marketing Optimization -->
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div>
+                                <h3 class="service-title">Marketing Optimization</h3>
+                                <p class="service-description">Automated marketing systems that work 24/7 for your store</p>
+                            </div>
+                        </div>
+                        <div class="horizontal-scroll">
+                            <div class="scroll-list">
+                                <div class="service-item">
+                                    <h4>Automated Social Media Posting</h4>
+                                    <p>Set up posting across 20 accounts on Facebook, Instagram, TikTok, YouTube Shorts, Pinterest, LinkedIn automatically</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Social Media Monitoring</h4>
+                                    <p>Auto monitor your main social media accounts and send you reports via email/Slack</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Engagement Analytics</h4>
+                                    <p>Auto send your most engaging posts and videos to Slack/Email/Google Drive for ad campaigns</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Affiliate Program Setup</h4>
+                                    <p>Create a full affiliates program to engage customers for UGC videos and social media posts</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Content Calendar Automation</h4>
+                                    <p>Auto send weekly content calendar ideas suited for your brand</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>AI Content Generation</h4>
+                                    <p>Auto generate AI posts for your brand with different creative ideas</p>
+                                </div>
+                            </div>
+                            <div class="scroll-indicator">
+                                <p>← Scroll to see all marketing services →</p>
+                                <div class="scroll-dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logistics & Inventory -->
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div>
+                                <h3 class="service-title">Logistics & Inventory Optimization</h3>
+                                <p class="service-description">Smart inventory management systems that prevent stockouts and reduce costs</p>
+                            </div>
+                        </div>
+                        <div class="horizontal-scroll">
+                            <div class="scroll-list">
+                                <div class="service-item">
+                                    <h4>Cost Analysis Reports</h4>
+                                    <p>Weekly/Monthly reports showing average expenditure cost per order for every country</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>High-Cost Order Alerts</h4>
+                                    <p>Flag high-cost orders automatically and email lists to fulfillment centers</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>SKU Performance Monitoring</h4>
+                                    <p>Auto monitor SKU selling performance with email/Slack reports</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Inventory Forecasting</h4>
+                                    <p>Predict inventory days left for each SKU based on past months' sales</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Automated Restocking Alerts</h4>
+                                    <p>Auto send alerts to supply chain managers when inventory drops below threshold</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Location-Based Notifications</h4>
+                                    <p>Automated notifications for specific inventory location restocking</p>
+                                </div>
+                            </div>
+                            <div class="scroll-indicator">
+                                <p>← Scroll to see all inventory services →</p>
+                                <div class="scroll-dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other Optimizations -->
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div>
+                                <h3 class="service-title">Platform Integrations</h3>
+                                <p class="service-description">Custom automation solutions connecting all your business tools</p>
+                            </div>
+                        </div>
+                        <div class="horizontal-scroll">
+                            <div class="scroll-list">
+                                <div class="service-item">
+                                    <h4>Slack Workflow Automation</h4>
+                                    <p>Complete Slack automation and workflow integration for team communication</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Shopify Store Automation</h4>
+                                    <p>Advanced Shopify store automation for orders, customers, and product management</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>ClickUp Project Management</h4>
+                                    <p>Automated project management and task tracking with ClickUp integration</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>G-Suite Productivity</h4>
+                                    <p>Complete G-suite productivity automation for documents, sheets, and workflows</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>Klaviyo Email Automation</h4>
+                                    <p>Advanced Klaviyo email marketing automation and customer segmentation</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>AI Integration</h4>
+                                    <p>OpenAI and Google-AI integration for smart automation and data processing</p>
+                                </div>
+                            </div>
+                            <div class="scroll-indicator">
+                                <p>← Scroll to see all integration services →</p>
+                                <div class="scroll-dots">
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="section">
+            <div class="container">
+                <h2 class="section-title">The Right Tool for the Job</h2>
+                <p class="section-subtitle">Generic tools try to fit all businesses. My solutions are custom-built to fit yours.</p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-column">
+                        <h3>Generic 'No-Code' Tools</h3>
+                        <ul class="comparison-list">
+                            <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>One-size-fits-all approach lacks the precision needed for e-commerce.</span>
+                            </li>
+                            <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Limited by pre-built triggers and actions, restricting complex workflows.</span>
+                            </li>
+                             <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Costs scale unpredictably with per-task pricing models.</span>
+                            </li>
+                             <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>You still have to build, manage, and troubleshoot the automations yourself.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column custom-solution">
+                        <h3>My Custom-Coded Solutions</h3>
+                         <ul class="comparison-list">
+                            <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Tailor-made specifically for your brand's unique operational needs.</span>
+                            </li>
+                            <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Infinite flexibility to handle any custom logic or integration your store requires.</span>
+                            </li>
+                             <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>A predictable, one-time investment with no recurring per-task fees.</span>
+                            </li>
+                             <li>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>A fully managed, "done-for-you" service from development to deployment.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>I'm <strong>Zeyad</strong>, and I've worked in Data Science and Automation for the past 3 years. I've collaborated with dozens of stores, maintaining perfect 5/5 star reviews throughout my career.</p>
+                        
+                        <p>As a freelancer on Upwork, I've helped numerous companies save more than <strong>20 hours a week</strong> and gain more than <strong>60% more in revenue</strong> by helping them focus on what really matters and removing distractions from their operations.</p>
+
+                        <p>My expertise combines data science with practical automation solutions, ensuring every system I build is both intelligent and results-driven.</p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">5.0★</span>
+                            <span class="highlight-label">By 30+ Clients</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">3+</span>
+                            <span class="highlight-label">Years Experience in The Field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="section">
+            <div class="container">
+                <h2 class="section-title">Client Testimonials</h2>
+                <p class="section-subtitle">All 5-star reviews from satisfied clients.</p>
+                
+                <div class="horizontal-scroll">
+                    <div class="scroll-list">
+                        <div class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"I couldn't have ask for a better data scientist to work with. Zeyad delivered exactly what I needed in less time than I expected. He was absolutely amazing across the board... If you're looking for an awesome data scientist, look no further."</p>
+                            <div class="review-author">
+                                <div class="author-avatar">JO</div>
+                                <div class="author-info">
+                                    <h4>Jeff Oxford</h4>
+                                    <p>180 Marketing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Zeyad was very thorough and patient in explaining everything to me. Everything worked perfectly. I’d definitely work with him more."</p>
+                            <div class="review-author">
+                                <div class="author-avatar">JN</div>
+                                <div class="author-info">
+                                    <h4>Joost Nusselder</h4>
+                                    <p>Decision Tree Online Services</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"I had the pleasure of working with Zeyad, and I can confidently say that he is exceptionally responsible and dedicated to his work."</p>
+                            <div class="review-author">
+                                <div class="author-avatar">SK</div>
+                                <div class="author-info">
+                                    <h4>Sean Kim</h4>
+                                    <p>AK Consulting</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"An expert in his field indeed!"</p>
+                            <div class="review-author">
+                                <div class="author-avatar">LD</div>
+                                <div class="author-info">
+                                    <h4>Lee Depute</h4>
+                                    <p>Client</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Zeyad did an outstanding job, He is highly responsive, professional, and delivered exceptional results. His technical expertise and dedication were evident throughout the work I highly recommend Zeyad and would gladly work with him more."</p>
+                            <div class="review-author">
+                                <div class="author-avatar">MN</div>
+                                <div class="author-info">
+                                    <h4>Mateo Niksic</h4>
+                                    <p>Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="scroll-indicator">
+                        <p>← Scroll to see all reviews →</p>
+                        <div class="scroll-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Booking Section -->
+        <section id="booking" class="section calendar">
+            <div class="container">
+                <h2 class="section-title">Ready to Choose Your Automation?</h2>
+                <p class="section-subtitle">Book a call to discuss which services you want - I'll set them up and have them running automatically for your store</p>
+                
+                <div class="calendar-card">
+                    <div class="calendar-placeholder">
+                        <h3>Schedule Your Consultation</h3>
+                        <p>Let's discuss which automation services you want for your store. I'll set up everything you choose and have it running automatically.</p>
+                        
+                        <div class="calendar-options">
+                            <span class="calendar-option">Calendly</span>
+                            <span class="calendar-option">Acuity Scheduling</span>
+                            <span class="calendar-option">BookingPage</span>
+                            <span class="calendar-option">Cal.com</span>
+                        </div>
+                        
+                        <p style="margin-top: 2rem;">
+                            <a href="mailto:your-email@domain.com" class="btn-secondary">Email Me Instead</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#comparison">Why Custom?</a>
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="mailto:contact@domain.com">Contact</a>
+            </div>
+            <p>&copy; 2025 Zeyad - E-commerce Automation Expert. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Chart.js configuration - Bar Chart
+        const ctx = document.getElementById('impactChart').getContext('2d');
+        
+        const impactChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Before Automation', 'After Automation'],
+                datasets: [{
+                    label: 'Weekly Hours Worked',
+                    data: [50, 30], // Represents working 50 hours, then 30 (20 hours less)
+                    backgroundColor: 'rgba(79, 172, 254, 0.8)',
+                    borderColor: '#4facfe',
+                    borderWidth: 2,
+                    yAxisID: 'y',
+                    borderRadius: 5,
+                }, {
+                    label: 'Monthly Revenue',
+                    data: [10000, 16000], // Represents a 60% increase in revenue
+                    backgroundColor: 'rgba(0, 242, 254, 0.8)',
+                    borderColor: '#00f2fe',
+                    borderWidth: 2,
+                    yAxisID: 'y1',
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#ffffff',
+                            font: { size: 14, weight: '500', family: 'Inter' }
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    y: { 
+                        display: false,
+                        beginAtZero: true
+                    },
+                    y1: {
+                        display: false,
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        onClick: null, // Disables click event on legend items
+                        labels: {
+                            color: '#ffffff',
+                            font: {
+                                size: 14,
+                                weight: '500',
+                                family: 'Inter'
+                            },
+                            padding: 20,
+                            usePointStyle: true,
+                            pointStyle: 'rectRounded'
+                        }
+                    },
+                    tooltip: {
+                       enabled: false // Disables tooltips and all hover interactions
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+
+        // Scroll dots indicator for all horizontal scroll lists
+        function updateScrollDots() {
+            document.querySelectorAll('.horizontal-scroll').forEach((scrollContainer) => {
+                const list = scrollContainer.querySelector('.scroll-list');
+                const dots = scrollContainer.querySelectorAll('.dot');
+                if (!list || dots.length === 0) return;
+
+                const scrollLeft = list.scrollLeft;
+                const maxScroll = list.scrollWidth - list.clientWidth;
+                
+                if (maxScroll > 0) {
+                    const sections = dots.length;
+                    const currentSection = Math.round((scrollLeft / maxScroll) * (sections - 1));
+                    
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSection);
+                    });
+                }
+            });
+        }
+
+        document.querySelectorAll('.scroll-list').forEach(list => {
+            list.addEventListener('scroll', updateScrollDots);
+        });
+        
+        // Call it once on load to set initial state
+        window.addEventListener('load', updateScrollDots);
+
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-category, .comparison-column, .about-grid, .review-card, .stat-item, .highlight-item, .calendar-card').forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+</body>
+</html>
