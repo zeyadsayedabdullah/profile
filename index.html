@@ -464,42 +464,42 @@
                 gap: 1.5rem;
             }
 
-            /* --- NEW: Complete Redesign for "Proven Results" on Mobile --- */
+            /* --- GUARANTEED FIX for "Proven Results" on Mobile --- */
             .results-card {
-                gap: 2.5rem; 
-                padding: 2rem 1.5rem;
+                gap: 2.5rem !important; 
+                padding: 2rem 1.5rem !important;
             }
             .result-item {
-                display: block; /* Use simple block layout instead of flex */
-                text-align: left;
+                display: block !important; /* This forces the vertical layout */
+                text-align: left !important;
             }
             .result-item-icon {
-                font-size: 2.5rem; 
-                line-height: 1;
-                margin: 0 0 1rem 0; 
-                display: block; 
+                font-size: 2.5rem !important; 
+                line-height: 1 !important;
+                margin: 0 0 1rem 0 !important; 
+                display: block !important; 
             }
             .result-item-content {
-                text-align: left;
+                text-align: left !important;
             }
             .result-item-content h3 {
-                font-size: 1rem;
-                font-weight: 700;
-                color: #4facfe;
-                text-transform: uppercase;
-                letter-spacing: 0.8px;
-                margin-bottom: 0.5rem;
+                font-size: 1rem !important;
+                font-weight: 700 !important;
+                color: #4facfe !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.8px !important;
+                margin-bottom: 0.5rem !important;
             }
             .result-item-content p {
-                font-size: 0.95rem;
-                line-height: 1.7;
+                font-size: 0.95rem !important;
+                line-height: 1.7 !important;
             }
             .result-item.final-result .result-item-content p {
-                font-size: 1.05rem;
-                font-weight: 500;
-                color: #ffffff; 
+                font-size: 1.05rem !important;
+                font-weight: 500 !important;
+                color: #ffffff !important; 
             }
-            /* --- End of Redesign --- */
+            /* --- End of Fix --- */
         }
 
         @media (max-width: 480px) {
