@@ -93,7 +93,7 @@
         }
         .section-cta {
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 2.5rem;
         }
         /* Chart Container */
         .chart-container {
@@ -145,14 +145,12 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* NEW: Scroll indicator text */
         .scroll-indicator {
             text-align: center;
             color: #8b949e;
-            margin-top: -4rem;
-            margin-bottom: 4rem;
             font-style: italic;
             font-size: 0.9rem;
+            margin-top: 1.5rem;
         }
         /* Services Section */
         .services-container {
@@ -191,7 +189,7 @@
             display: flex;
             gap: 2rem;
             overflow-x: auto;
-            padding: 1rem 4px; /* Added small padding to prevent shadows clipping */
+            padding: 1rem 4px; 
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -271,7 +269,7 @@
             align-items: center;
         }
         #about .section-title {
-            text-align: left; /* Keep left-aligned on desktop */
+            text-align: left;
         }
         .about-text p {
             font-size: 1.1rem;
@@ -415,7 +413,7 @@
                 text-align: center;
             }
             #about .section-title {
-                text-align: center; /* Center 'About Me' title when layout stacks */
+                text-align: center; 
             }
             .about-text p {
                 margin-left: auto;
@@ -485,45 +483,45 @@
                 padding: 1.5rem;
                 margin: 2rem auto;
             }
-            .scroll-indicator {
-                margin-top: -3rem;
-                margin-bottom: 3rem;
-            }
             .service-category {
                 padding: 2rem 1rem;
             }
             .service-title {
                 font-size: 2rem;
             }
-            /* Make scrolling cards take up most of the screen width */
             .service-item, .review-card, .results-card {
                 min-width: calc(100vw - 64px); 
             }
-            /* Allow scrolling content to feel more 'native' */
             .horizontal-scroll .scroll-list {
                 padding-left: 16px;
                 padding-right: 16px;
                 margin-left: -16px;
                 margin-right: -16px;
             }
-            /* Mobile fixes for Results Card */
+
+            /* --- NEW: Proven Results Mobile Fix --- */
             .results-card {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
             }
             .result-item {
-                gap: 1rem;
+                flex-direction: column; /* Stack icon on top of text */
+                align-items: center;   /* Center the items horizontally */
+                text-align: center;    /* Center the text content */
+                gap: 0.75rem;          /* Adjust gap for vertical stacking */
             }
             .result-item-icon {
-                font-size: 1.5rem;
+                font-size: 2rem;      
                 margin-top: 0;
+                margin-bottom: 0.5rem; /* Add space below the icon */
             }
             .result-item-content h3 {
-                font-size: 1rem;
+                font-size: 1.1rem;      
             }
             .result-item-content p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;     
             }
-            /* Mobile fixes for About Me section */
+            /* --- End of Fix --- */
+
             #about .section-title {
                 font-size: 2.5rem;
             }
@@ -580,6 +578,7 @@
                                 <div class="service-item"><h4>AI Content Generation</h4><p>Automatically generate AI posts for your brand based on various content ideas.</p></div>
                             </div>
                         </div>
+                        <p class="scroll-indicator">(Swipe to see more →)</p>
                         <div class="section-cta"><a href="#booking" class="cta-button">Automate My Marketing</a></div>
                     </div>
 
@@ -594,6 +593,7 @@
                                 <div class="service-item"><h4>Inventory Management</h4><p>Automatically monitor SKU sales performance with reports via Email/Slack. The system predicts inventory days remaining for each SKU based on recent sales history and sends alerts to your supply chain manager when stock falls below specified thresholds.</p></div>
                             </div>
                         </div>
+                        <p class="scroll-indicator">(Swipe to see more →)</p>
                          <div class="section-cta"><a href="#booking" class="cta-button">Optimize My Operations</a></div>
                     </div>
 
@@ -609,6 +609,7 @@
                                 <div class="service-item"><h4>More Integration To Elimentate The Manual Tasks</h4><p>Slack - Shopify - Clickup - G-suite - Klaviyo - OpenAI - Google-AI</p></div>
                             </div>
                         </div>
+                        <p class="scroll-indicator">(Swipe to see more →)</p>
                          <div class="section-cta"><a href="#booking" class="cta-button">Integrate My Tools</a></div>
                     </div>
                 </div>
@@ -619,7 +620,6 @@
             <div class="container">
                 <h2 class="section-title">Proven Results</h2>
                 <p class="section-subtitle">Examples of how custom automation transforms real businesses.</p>
-                <p class="scroll-indicator">(Swipe to see more case studies →)</p>
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="results-card">
@@ -654,6 +654,7 @@
                         </div>
                     </div>
                 </div>
+                <p class="scroll-indicator">(Swipe to see more case studies →)</p>
             </div>
         </section>
 
@@ -690,7 +691,7 @@
         <section id="reviews" class="section section-colored">
             <div class="container">
                 <h2 class="section-title">What My Clients Say</h2>
-                 <p class="scroll-indicator">(Swipe to read more reviews →)</p>
+                <p class="section-subtitle">See what business owners are saying about our work.</p>
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I couldn't have asked for a better data scientist to work with. Zeyad <strong>delivered exactly what I needed in less time than I expected</strong>. He was <strong>absolutely amazing across the board</strong>... If you're looking for an awesome data scientist, look no further."</p><div class="review-author"><div class="author-avatar">JO</div><div class="author-info"><h4>Jeff Oxford</h4><p>180 Marketing</p></div></div></div>
@@ -700,6 +701,7 @@
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"An <strong>expert in his field indeed!</strong>"</p><div class="review-author"><div class="author-avatar">LD</div><div class="author-info"><h4>Lee Depute</h4><p>Client</p></div></div></div>
                     </div>
                 </div>
+                <p class="scroll-indicator">(Swipe to read more reviews →)</p>
             </div>
         </section>
 
