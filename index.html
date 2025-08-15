@@ -502,36 +502,49 @@
 
             /* --- IMPROVED: Proven Results Mobile Layout --- */
             .results-card {
-                padding: 2rem 1.5rem;
-                gap: 1.5rem;
+                padding: 1.5rem;
+                gap: 1.25rem;
+                min-height: calc(100vh - 200px); /* Take most of screen height */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             }
             .result-item {
-                display: block; /* Stack vertically */
+                display: block;
                 text-align: center;
-                margin-bottom: 1.5rem;
-            }
-            .result-item:last-child {
-                margin-bottom: 0;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem 0;
             }
             .result-item-icon {
                 display: block;
-                font-size: 2.5rem;
-                margin: 0 auto 0.75rem auto;
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
                 text-align: center;
             }
             .result-item-content {
                 text-align: center;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             .result-item-content h3 {
-                font-size: 1rem;
-                margin-bottom: 0.75rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.3px;
             }
             .result-item-content p {
-                font-size: 0.95rem;
-                line-height: 1.5;
+                font-size: 0.85rem;
+                line-height: 1.4;
+                margin: 0;
             }
             .result-item.final-result .result-item-content p {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                font-weight: 600;
             }
             /* --- End of Improved Mobile Layout --- */
 
