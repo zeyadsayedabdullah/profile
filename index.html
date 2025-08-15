@@ -145,6 +145,15 @@
             margin-left: auto;
             margin-right: auto;
         }
+        /* NEW: Scroll indicator text */
+        .scroll-indicator {
+            text-align: center;
+            color: #8b949e;
+            margin-top: -4rem;
+            margin-bottom: 4rem;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
         /* Services Section */
         .services-container {
             display: flex;
@@ -182,7 +191,7 @@
             display: flex;
             gap: 2rem;
             overflow-x: auto;
-            padding: 1rem 0;
+            padding: 1rem 4px; /* Added small padding to prevent shadows clipping */
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -260,6 +269,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
             align-items: center;
+        }
+        #about .section-title {
+            text-align: left; /* Keep left-aligned on desktop */
         }
         .about-text p {
             font-size: 1.1rem;
@@ -402,6 +414,9 @@
                 gap: 3rem;
                 text-align: center;
             }
+            #about .section-title {
+                text-align: center; /* Center 'About Me' title when layout stacks */
+            }
             .about-text p {
                 margin-left: auto;
                 margin-right: auto;
@@ -422,7 +437,7 @@
                 padding: 60px 0;
             }
             .section-subtitle {
-                margin-bottom: 3rem;
+                margin-bottom: 4rem;
                 font-size: 1.1rem;
             }
             .service-item, .review-card, .results-card {
@@ -470,6 +485,10 @@
                 padding: 1.5rem;
                 margin: 2rem auto;
             }
+            .scroll-indicator {
+                margin-top: -3rem;
+                margin-bottom: 3rem;
+            }
             .service-category {
                 padding: 2rem 1rem;
             }
@@ -487,8 +506,26 @@
                 margin-left: -16px;
                 margin-right: -16px;
             }
+            /* Mobile fixes for Results Card */
             .results-card {
-                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            .result-item {
+                gap: 1rem;
+            }
+            .result-item-icon {
+                font-size: 1.5rem;
+                margin-top: 0;
+            }
+            .result-item-content h3 {
+                font-size: 1rem;
+            }
+            .result-item-content p {
+                font-size: 0.9rem;
+            }
+            /* Mobile fixes for About Me section */
+            #about .section-title {
+                font-size: 2.5rem;
             }
              .review-card {
                 padding: 1.5rem;
@@ -582,6 +619,7 @@
             <div class="container">
                 <h2 class="section-title">Proven Results</h2>
                 <p class="section-subtitle">Examples of how custom automation transforms real businesses.</p>
+                <p class="scroll-indicator">(Swipe to see more case studies →)</p>
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="results-card">
@@ -623,7 +661,7 @@
              <div class="container">
                 <div class="about-grid">
                     <div class="about-text">
-                        <h2 class="section-title" style="text-align: left; font-size: 3.2rem;">About Me</h2>
+                        <h2 class="section-title">About Me</h2>
                         <p>
                             I'm <strong>Zeyad</strong>, a Data Science and Automation specialist with over 3 years of experience helping e-commerce stores scale efficiently. 
                             I've maintained a perfect 5/5 star rating across dozens of projects on 
@@ -652,6 +690,7 @@
         <section id="reviews" class="section section-colored">
             <div class="container">
                 <h2 class="section-title">What My Clients Say</h2>
+                 <p class="scroll-indicator">(Swipe to read more reviews →)</p>
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I couldn't have asked for a better data scientist to work with. Zeyad <strong>delivered exactly what I needed in less time than I expected</strong>. He was <strong>absolutely amazing across the board</strong>... If you're looking for an awesome data scientist, look no further."</p><div class="review-author"><div class="author-avatar">JO</div><div class="author-info"><h4>Jeff Oxford</h4><p>180 Marketing</p></div></div></div>
