@@ -350,6 +350,12 @@
             color: #b0b0b0;
             font-size: 0.9rem;
         }
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
         /* Calendar Section */
         .calendar {
             background: linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(255, 113, 91, 0.08) 100%);
@@ -369,6 +375,7 @@
             background: #000000;
             padding: 4rem 0;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
         }
         .footer-links {
             display: flex;
@@ -386,21 +393,116 @@
         .footer-links a:hover {
             color: #4facfe;
         }
-        .review-stars {
-            color: #ffc107;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        @media (max-width: 900px) {
+
+        /* --- Responsive Design --- */
+
+        @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            .about-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .about-highlights {
+                margin-top: 2rem;
             }
         }
+
         @media (max-width: 768px) {
-            .service-item, .review-card, .results-card { min-width: 300px; }
-            .service-category, .calendar-card { padding: 2.5rem; }
-            .about-highlights { grid-template-columns: 1fr; gap: 1rem; }
+            .container {
+                padding: 0 20px;
+            }
+            .section {
+                padding: 80px 0;
+            }
+            .hero {
+                padding: 60px 0;
+            }
+            .section-subtitle {
+                margin-bottom: 3rem;
+                font-size: 1.1rem;
+            }
+            .service-item, .review-card, .results-card {
+                min-width: 320px;
+            }
+            .results-card, .review-card {
+                padding: 2rem;
+            }
+            .scroll-list {
+                gap: 1.5rem;
+            }
+            .service-category {
+                padding: 2.5rem 1.5rem;
+            }
+            .about-highlights {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .calendar-card {
+                padding: 2.5rem;
+            }
+            #booking .section-title {
+                font-size: 2.2rem;
+            }
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+            .chart-container {
+                padding: 1.5rem;
+                margin: 2rem auto;
+            }
+            .service-category {
+                padding: 2rem 1rem;
+            }
+            .service-title {
+                font-size: 2rem;
+            }
+            /* Make scrolling cards take up most of the screen width */
+            .service-item, .review-card, .results-card {
+                min-width: calc(100vw - 64px); 
+            }
+            /* Allow scrolling content to feel more 'native' */
+            .horizontal-scroll .scroll-list {
+                padding-left: 16px;
+                padding-right: 16px;
+                margin-left: -16px;
+                margin-right: -16px;
+            }
+            .results-card {
+                gap: 1.5rem;
+            }
+             .review-card {
+                padding: 1.5rem;
+            }
+            .review-text {
+                font-size: 1rem;
+            }
+            .calendar-card {
+                padding: 2rem 1.5rem;
+            }
+            .footer-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -520,20 +622,19 @@
         <section id="about" class="section">
              <div class="container">
                 <div class="about-grid">
-
-<div class="about-text">
-    <h2>About Me</h2>
-    <p>
-        I'm <strong>Zeyad</strong>, a Data Science and Automation specialist with over 3 years of experience helping e-commerce stores scale efficiently. 
-        I've maintained a perfect 5/5 star rating across dozens of projects on 
-        <a href="https://www.upwork.com/freelancers/~011e53df9cf97afbe3" target="_blank">Upwork</a>, 
-        and shared professional insights on 
-        <a href="https://www.linkedin.com/in/zeyadsayed/" target="_blank">LinkedIn</a>, 
-    </p>
-    <p>
-        My passion is building intelligent, data-driven systems that remove operational bottlenecks, saving my clients over <strong>20 hours a week</strong> and helping them increase revenue by more than <strong>60%</strong>.
-    </p>
-</div>
+                    <div class="about-text">
+                        <h2 class="section-title" style="text-align: left; font-size: 3.2rem;">About Me</h2>
+                        <p>
+                            I'm <strong>Zeyad</strong>, a Data Science and Automation specialist with over 3 years of experience helping e-commerce stores scale efficiently. 
+                            I've maintained a perfect 5/5 star rating across dozens of projects on 
+                            <a href="https://www.upwork.com/freelancers/~011e53df9cf97afbe3" target="_blank" style="color: #4facfe;">Upwork</a>, 
+                            and shared professional insights on 
+                            <a href="https://www.linkedin.com/in/zeyadsayed/" target="_blank" style="color: #4facfe;">LinkedIn</a>.
+                        </p>
+                        <p>
+                            My passion is building intelligent, data-driven systems that remove operational bottlenecks, saving my clients over <strong>20 hours a week</strong> and helping them increase revenue by more than <strong>60%</strong>.
+                        </p>
+                    </div>
                     <div class="about-highlights">
                         <div class="highlight-item">
                             <span class="highlight-number">5.0★</span>
@@ -568,7 +669,7 @@
                 <div class="calendar-card">
                     <h2 class="section-title" style="font-size: 2.8rem; margin-bottom: 2rem;">Ready to Reclaim Your Time?</h2>
                     <p class="section-subtitle" style="margin-bottom: 2.5rem; max-width: 600px;">Book a free, no-obligation consultation call. We'll discuss your store's unique challenges and build a custom automation plan to help you scale.</p>
-                    <a href="https://calendly.com/zeyadsayed/30min" class="cta-button">Get My Free Consultation</a>
+                    <a href="https://calendly.com/zeyadsayed/30min" target="_blank" class="cta-button">Get My Free Consultation</a>
                 </div>
             </div>
         </section>
@@ -581,7 +682,7 @@
                 <a href="#results">Results</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#about">About</a>
-                <a href="<https://mail.google.com/mail/?view=cm&fs=1&to=zeyaddatascientist@gmail.com>" >Contact</a> 
+                <a href="mailto:zeyaddatascientist@gmail.com">Contact</a> 
             </div>
             <p>&copy; 2025 Zeyad - E-commerce Automation Expert. All rights reserved.</p>
         </div>
@@ -590,7 +691,7 @@
     <script>
         // Chart.js configuration
         const ctx = document.getElementById('impactChart').getContext('2d');
-        const impactChart = new Chart(ctx, { type: 'bar', data: { labels: ['Before Automation', 'After Automation'], datasets: [{ label: 'Weekly Hours Worked', data: [50, 30], backgroundColor: 'rgba(79, 172, 254, 0.8)', borderColor: '#4facfe', borderWidth: 2, yAxisID: 'y', borderRadius: 5, }, { label: 'Monthly Revenue', data: [10000, 16000], backgroundColor: 'rgba(0, 242, 254, 0.8)', borderColor: '#00f2fe', borderWidth: 2, yAxisID: 'y1', borderRadius: 5, }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: '#ffffff', font: { size: 14 } }, grid: { color: 'rgba(255, 255, 255, 0.1)' } }, y: { display: false, beginAtZero: true }, y1: { display: false, beginAtZero: true } }, plugins: { legend: { display: true, position: 'bottom', labels: { color: '#ffffff', font: { size: 14 }, padding: 20, usePointStyle: true, pointStyle: 'rectRounded' } }, tooltip: { enabled: false } }, animation: { duration: 1500, easing: 'easeInOutQuart' } } });
+        const impactChart = new Chart(ctx, { type: 'bar', data: { labels: ['Before Automation', 'After Automation'], datasets: [{ label: 'Weekly Hours Worked', data: [50, 30], backgroundColor: 'rgba(79, 172, 254, 0.8)', borderColor: '#4facfe', borderWidth: 2, yAxisID: 'y', borderRadius: 5, }, { label: 'Monthly Revenue', data: [10000, 16000], backgroundColor: 'rgba(0, 242, 254, 0.8)', borderColor: '#00f2fe', borderWidth: 2, yAxisID: 'y1', borderRadius: 5, }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: '#ffffff', font: { size: 14 } }, grid: { color: 'rgba(255, 255, 255, 0.1)' } }, y: { display: false, beginAtZero: true }, y1: { display: false, beginAtZero: true } }, plugins: { legend: { display: true, position: 'bottom', labels: { color: '#ffffff', font: { size: 14 }, padding: 20, usePointStyle: true, pointStyle: 'rectRounded' } }, tooltip: { enabled: true, backgroundColor: '#11161d', titleFont: {size: 16}, bodyFont: {size: 14}, padding: 12, cornerRadius: 8 } }, animation: { duration: 1500, easing: 'easeInOutQuart' } } });
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
