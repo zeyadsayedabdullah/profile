@@ -213,7 +213,7 @@
             color: #d0d0d0;
             font-size: 0.95rem;
         }
-        /* NEW: Proven Results Styling */
+        /* Proven Results Styling */
         .results-card {
             min-width: 420px;
             background: rgba(30, 144, 255, 0.05);
@@ -398,21 +398,11 @@
             }
         }
         @media (max-width: 768px) {
-            .service-item, .review-card, .results-card { min-width: 280px; }
+            .service-item, .review-card, .results-card { min-width: 300px; }
             .service-category, .calendar-card { padding: 2.5rem; }
             .about-highlights { grid-template-columns: 1fr; gap: 1rem; }
-            .results-card { min-width: 300px; }
         }
     </style>
-
-	<script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Re Ms Fs Pe Rs Cs capture Ve calculateEventProperties Ds register register_once register_for_session unregister unregister_for_session zs getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ls As createPersonProfile Ns Is Us opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing is_capturing clear_opt_in_out_capturing Os debug I js getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_ykz67VNxaps6hf1ZOZXANZigBB5HCtqhLjkqSdoBSRQ', {
-        api_host: 'https://us.i.posthog.com',
-        defaults: '2025-05-24',
-        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-    })
-</script>
 </head>
 <body>
     <section class="hero">
@@ -494,73 +484,34 @@
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="results-card">
-                            <div class="result-item">
-                                <span class="result-item-icon">❓</span>
-                                <div class="result-item-content">
-                                    <h3>Client Problem</h3>
-                                    <p>An apparel brand was losing sales from constant stockouts, requiring 15+ hours a week of manual inventory checks.</p>
-                                </div>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-item-icon">💡</span>
-                                <div class="result-item-content">
-                                    <h3>Solution</h3>
-                                    <p>I built an automated system that monitored sales velocity and sent predictive restocking alerts directly to their supply chain manager.</p>
-                                </div>
-                            </div>
-                            <div class="result-item final-result">
-                                <span class="result-item-icon">✨</span>
-                                <div class="result-item-content">
-                                    <h3>Result</h3>
-                                    <p>They <strong>saved 15+ hours/week</strong>, reduced stockouts by <strong>90%</strong>, and saw a <strong>25% sales increase</strong> on top items.</p>
-                                </div>
-                            </div>
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store struggled to keep up with daily posting on multiple platforms. Managing 10+ social accounts took over 12 hours a week and led to inconsistent brand presence.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I set up an automated posting system so that one upload could instantly be published across Facebook, Instagram, TikTok, YouTube Shorts, Pinterest, and LinkedIn — up to 20 accounts — multiple times per day.</p></div></div>
+                            <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>Their posting frequency tripled, audience reach grew by <strong>180%</strong>, and engagement increased <strong>65%</strong>, all while freeing up <strong>12 hours a week</strong>.</p></div></div>
                         </div>
                         <div class="results-card">
-                            <div class="result-item">
-                                <span class="result-item-icon">❓</span>
-                                <div class="result-item-content">
-                                    <h3>Client Problem</h3>
-                                    <p>A cosmetics company's support team was overwhelmed, with customer response times exceeding 24 hours, leading to poor reviews.</p>
-                                </div>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-item-icon">💡</span>
-                                <div class="result-item-content">
-                                    <h3>Solution</h3>
-                                    <p>I deployed an AI chatbot to handle 70% of common inquiries and an automated system to route complex tickets to the right agent.</p>
-                                </div>
-                            </div>
-                            <div class="result-item final-result">
-                                <span class="result-item-icon">✨</span>
-                                <div class="result-item-content">
-                                    <h3>Result</h3>
-                                    <p>First-response time dropped to <strong>under 1 minute</strong> and customer satisfaction scores <strong>increased by 40%</strong>.</p>
-                                </div>
-                            </div>
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store had no clear way to track which content was driving spikes in engagement or sales.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I built an automated monitoring tool that tracked all main accounts, compiled key metrics, and sent a concise performance report to their email and Slack daily.</p></div></div>
+                            <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>They identified their top-performing formats, doubled down on winning content, and boosted sales by <strong>40% in three months</strong>.</p></div></div>
                         </div>
-                         <div class="results-card">
-                            <div class="result-item">
-                                <span class="result-item-icon">❓</span>
-                                <div class="result-item-content">
-                                    <h3>Client Problem</h3>
-                                    <p>A marketing director spent 10 hours every week manually compiling performance reports from 5 different platforms.</p>
-                                </div>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-item-icon">💡</span>
-                                <div class="result-item-content">
-                                    <h3>Solution</h3>
-                                    <p>I built a custom dashboard that pulled data from Shopify, Google Analytics, and all social media channels into one real-time report.</p>
-                                </div>
-                            </div>
-                            <div class="result-item final-result">
-                                <span class="result-item-icon">✨</span>
-                                <div class="result-item-content">
-                                    <h3>Result</h3>
-                                    <p><strong>Saved 40 hours per month</strong> of manual work and provided clear insights that led to a <strong>15% more efficient ad spend</strong>.</p>
-                                </div>
-                            </div>
+                        <div class="results-card">
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store’s ad team wasted hours each week manually finding high-performing posts to repurpose into ads.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I created an automation that detected the most engaging posts/videos in real time and sent them to Slack, Email, and Google Drive, ready for ad campaigns.</p></div></div>
+                            <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>The ad team cut <strong>8+ hours/week</strong> of manual work, launched ad creatives <strong>3x faster</strong>, and improved ROAS by <strong>32%</strong>.</p></div></div>
+                        </div>
+                        <div class="results-card">
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store struggled to generate user-generated content (UGC) and repeat purchases from loyal customers.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I built a full affiliate program that automatically identified their best customers, invited them to join, and provided easy tools for posting UGC videos on social media.</p></div></div>
+                            <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>UGC posts increased by <strong>500%</strong>, affiliate-driven sales accounted for <strong>22% of monthly revenue</strong>, and customer lifetime value rose by <strong>35%</strong>.</p></div></div>
+                        </div>
+                        <div class="results-card">
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store faced frequent stockouts because they didn’t know when SKUs were running low until it was too late.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I implemented a predictive inventory tracker that monitored sales velocity, forecasted days left for each SKU, and alerted the supply chain manager via Slack/Email when items approached a threshold.</p></div></div>
+                            <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>Stockouts dropped by <strong>85%</strong>, fulfillment times improved, and top SKU sales grew by <strong>20%</strong> from better availability.</p></div></div>
+                        </div>
+                        <div class="results-card">
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store was losing margin on certain orders due to unexpectedly high fulfillment costs.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I set up automated weekly/monthly reports that calculated the average order cost per country, flagged expensive outliers, and emailed the fulfillment center for review.</p></div></div>
+                            <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>They reduced costly shipping mistakes by <strong>70%</strong>, recovered <strong>$12k in excess expenses</strong> within two months, and improved profit margins.</p></div></div>
                         </div>
                     </div>
                 </div>
@@ -622,7 +573,7 @@
                 <a href="#results">Results</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#about">About</a>
-                <a href="<https://mail.google.com/mail/?view=cm&fs=1&to=zeyaddatascientist@gmail.com>" >Contact</a> 
+                <a href="<https://mail.google.com/mail/?view=cm&fs=1&to=zeyaddatascientist@gmail.com>" >Contact</a> 
             </div>
             <p>&copy; 2025 Zeyad - E-commerce Automation Expert. All rights reserved.</p>
         </div>
