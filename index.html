@@ -19,7 +19,7 @@
             overflow-x: hidden;
         }
         .container {
-            max-width: 1200px; /* Slightly reduced for better text readability */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -48,11 +48,11 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px; /* Constrain hero text width */
+            max-width: 900px;
             margin: 0 auto;
         }
         .hero-content h1 {
-            font-size: clamp(2.8rem, 5vw, 4.5rem); /* Increased size */
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.1;
@@ -62,8 +62,8 @@
             -webkit-text-fill-color: transparent;
         }
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.3rem); /* Responsive font size */
-            margin-bottom: 2.5rem; /* Space before CTA */
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
             opacity: 0.85;
             max-width: 700px;
             margin-left: auto;
@@ -71,7 +71,7 @@
             line-height: 1.7;
             color: #b0b0b0;
         }
-        /* New CTA Button Style */
+        /* CTA Button Style */
         .cta-button {
             display: inline-block;
             padding: 18px 40px;
@@ -80,7 +80,7 @@
             font-weight: 700;
             font-size: 1.1rem;
             color: #ffffff;
-            background: linear-gradient(135deg, #00BFFF 0%, #1E90FF 100%); /* Bright Blue */
+            background: linear-gradient(135deg, #00BFFF 0%, #1E90FF 100%);
             box-shadow: 0 10px 30px rgba(30, 144, 255, 0.4);
             transition: all 0.3s ease;
             border: none;
@@ -115,58 +115,21 @@
         #impactChart {
             max-height: 350px;
         }
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .stat-item {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-        .stat-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(79, 172, 254, 0.3);
-            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.1);
-        }
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.8;
-            color: #b0b0b0;
-        }
         /* Main Content */
         .main-content {
-            background: #0d1117; /* Simplified background */
+            background: #0d1117;
         }
         .section {
-            padding: 120px 0; /* Increased padding */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separator line */
+            padding: 120px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .section-colored {
-             background-color: #11161d; /* Light gray shading for alternating sections */
+             background-color: #11161d;
         }
         .section-title {
             text-align: center;
-            font-size: clamp(2.8rem, 4vw, 3.8rem); /* Larger title */
-            font-weight: 900; /* Bolder */
+            font-size: clamp(2.8rem, 4vw, 3.8rem);
+            font-weight: 900;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
@@ -178,7 +141,7 @@
             font-size: 1.2rem;
             color: #b0b0b0;
             margin-bottom: 5rem;
-            max-width: 750px; /* Constrain width */
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -186,23 +149,22 @@
         .services-container {
             display: flex;
             flex-direction: column;
-            gap: 5rem; /* More space between categories */
+            gap: 5rem;
         }
         .service-category {
             background: rgba(255, 255, 255, 0.02);
             border-radius: 24px;
-            padding: 3.5rem; /* More padding */
+            padding: 3.5rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
         }
         .service-header {
-            text-align: center; /* Center header */
+            text-align: center;
             margin-bottom: 3rem;
         }
         .service-title {
-            font-size: 2.5rem; /* Larger */
-            font-weight: 800; /* Bolder */
+            font-size: 2.5rem;
+            font-weight: 800;
             color: #ffffff;
             margin-bottom: 0.75rem;
         }
@@ -211,6 +173,22 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
+        }
+        .horizontal-scroll {
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll-list {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .scroll-list::-webkit-scrollbar {
+            display: none;
         }
         .service-item {
             min-width: 350px;
@@ -225,37 +203,30 @@
             border-color: rgba(79, 172, 254, 0.3);
             background: rgba(79, 172, 254, 0.1);
         }
-        /* New Bullet Point Style */
-        .service-bullets {
-            list-style: none;
-            padding-left: 0;
-        }
-        .service-bullets li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .service-item h4 {
+            color: #4facfe;
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            font-size: 1rem;
-            color: #d0d0d0;
         }
-        .service-bullets li span {
-            font-size: 1.2rem; /* Icon size */
-            margin-top: 2px;
+        .service-item p {
+            color: #d0d0d0;
+            font-size: 0.95rem;
         }
         /* Results Section (Mini Case Study) */
         .results-card {
-            max-width: 800px;
-            margin: 0 auto;
+            min-width: 400px; /* Set min-width for scroller */
             background: rgba(30, 144, 255, 0.05);
             border: 1px solid rgba(30, 144, 255, 0.2);
             border-radius: 24px;
             padding: 3rem;
             text-align: left;
+            flex-shrink: 0;
         }
         .results-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #1E90FF; /* Bright Blue */
+            color: #1E90FF;
             margin-bottom: 0.5rem;
         }
         .results-card p {
@@ -266,30 +237,6 @@
         .results-card p:last-child {
             margin-bottom: 0;
         }
-        /* Comparison Section */
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        .comparison-column {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 24px;
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .custom-solution {
-            border-color: rgba(79, 172, 254, 0.3);
-            box-shadow: 0 0 50px rgba(79, 172, 254, 0.1);
-        }
-        /* About Section */
-        .about-text p {
-            font-size: 1.1rem;
-            color: #c0c0c0;
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            max-width: 600px; /* Constrain line length */
-        }
         /* Testimonials Section */
         .review-card {
             min-width: 400px;
@@ -297,6 +244,8 @@
             border-radius: 24px;
             padding: 3rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
         }
         .review-text {
             font-size: 1.1rem;
@@ -304,58 +253,87 @@
             line-height: 1.7;
             margin-bottom: 2rem;
             text-align: left;
+            font-style: italic;
+            flex-grow: 1;
         }
         .review-text strong {
-            color: #4facfe; /* Highlight key phrases */
+            color: #4facfe;
         }
         .review-author {
             display: flex;
             align-items: center;
             gap: 1rem;
+            margin-top: auto;
         }
-        .author-avatar img {
+        /* Restored Avatar Style */
+        .author-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .author-info p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
         }
         /* Calendar Section */
         .calendar {
             background: linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(255, 113, 91, 0.08) 100%);
         }
+        .calendar-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
         /* Footer */
         footer {
             background: #000000;
             padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        /* All other existing styles from the original file remain, with minor adjustments */
-        .horizontal-scroll { position: relative; overflow: hidden; }
-        .scroll-list { display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
-        .scroll-list::-webkit-scrollbar { display: none; }
-        .scroll-indicator { text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem; }
-        .comparison-column h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; text-align: center; }
-        .comparison-list { list-style: none; }
-        .comparison-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; font-size: 1.05rem; color: #c0c0c0; }
-        .comparison-list li svg { flex-shrink: 0; margin-top: 5px; }
-        .custom-solution h3 { color: #4facfe; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            color: #4facfe;
+        }
+        /* Other Styles */
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .comparison-column { background: rgba(255, 255, 255, 0.02); border-radius: 24px; padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .custom-solution { border-color: rgba(79, 172, 254, 0.3); box-shadow: 0 0 50px rgba(79, 172, 254, 0.1); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-        .about-text h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 2rem; color: #ffffff; line-height: 1.2; }
-        .about-highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .highlight-item { text-align: center; padding: 2.5rem 2rem; background: rgba(255, 255, 255, 0.02); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; backdrop-filter: blur(20px); }
-        .highlight-item:hover { transform: translateY(-5px); border-color: rgba(79, 172, 254, 0.3); box-shadow: 0 20px 60px rgba(79, 172, 254, 0.1); }
-        .highlight-number { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 0.5rem; }
-        .highlight-label { color: #b0b0b0; font-size: 0.9rem; font-weight: 500; }
+        .about-text p { font-size: 1.1rem; color: #c0c0c0; margin-bottom: 1rem; max-width: 600px; }
         .review-stars { color: #ffc107; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: left; }
-        .author-info h4 { color: #ffffff; margin-bottom: 0.2rem; font-size: 1.1rem; font-weight: 600; }
-        .author-info p { color: #b0b0b0; font-size: 0.9rem; }
-        .calendar-card { max-width: 700px; margin: 0 auto; background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border-radius: 24px; padding: 4rem; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
-        footer .container { text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .footer-links a { color: #b0b0b0; text-decoration: none; transition: color 0.3s ease; font-weight: 500; }
-        .footer-links a:hover { color: #4facfe; }
         @media (max-width: 900px) { .comparison-grid, .about-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .service-item, .review-card { min-width: 280px; } .hero-stats, .about-highlights { grid-template-columns: 1fr; } .service-category, .calendar-card { padding: 2.5rem; } }
+        @media (max-width: 768px) { .service-item, .review-card, .results-card { min-width: 280px; } .service-category, .calendar-card { padding: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -388,12 +366,20 @@
                         <div class="horizontal-scroll">
                             <div class="scroll-list">
                                 <div class="service-item">
-                                    <ul class="service-bullets">
-                                        <li><span>📈</span> <b>Automated Social Posting:</b> Grow your audience across 20+ platforms without lifting a finger.</li>
-                                        <li><span>🔔</span> <b>Social Media Monitoring:</b> Get key insights and reports sent directly to your email or Slack.</li>
-                                        <li><span>🎯</span> <b>Engagement Analytics:</b> Automatically identify your best-performing content for high-ROI ad campaigns.</li>
-                                        <li><span>🤝</span> <b>Affiliate Program Setup:</b> Mobilize your customers to create user-generated content and drive sales for you.</li>
-                                    </ul>
+                                    <h4>📈 Automated Social Posting</h4>
+                                    <p>Grow your audience across 20+ platforms without lifting a finger.</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>🔔 Social Media Monitoring</h4>
+                                    <p>Get key insights and reports sent directly to your email or Slack.</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>🎯 Engagement Analytics</h4>
+                                    <p>Automatically identify your best content for high-ROI ad campaigns.</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>🤝 Affiliate Program Setup</h4>
+                                    <p>Mobilize customers to create user-generated content and drive sales for you.</p>
                                 </div>
                             </div>
                         </div>
@@ -410,12 +396,20 @@
                         <div class="horizontal-scroll">
                             <div class="scroll-list">
                                 <div class="service-item">
-                                    <ul class="service-bullets">
-                                        <li><span>📊</span> <b>Cost Analysis Reports:</b> Know your true cost-per-order in every country with automated weekly reports.</li>
-                                        <li><span>❗</span> <b>High-Cost Order Alerts:</b> Instantly flag and handle expensive orders before they hurt your margin.</li>
-                                        <li><span>📦</span> <b>SKU Performance Monitoring:</b> Get Slack/email alerts on your best and worst-selling products.</li>
-                                        <li><span>🔮</span> <b>Inventory Forecasting:</b> Predict exactly when you'll run out of stock and reorder with perfect timing.</li>
-                                    </ul>
+                                    <h4>📊 Cost Analysis Reports</h4>
+                                    <p>Know your true cost-per-order in every country with automated weekly reports.</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>❗ High-Cost Order Alerts</h4>
+                                    <p>Instantly flag and handle expensive orders before they hurt your margin.</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>📦 SKU Performance Monitoring</h4>
+                                    <p>Get Slack/email alerts on your best and worst-selling products.</p>
+                                </div>
+                                <div class="service-item">
+                                    <h4>🔮 Inventory Forecasting</h4>
+                                    <p>Predict exactly when you'll run out of stock and reorder with perfect timing.</p>
                                 </div>
                             </div>
                         </div>
@@ -432,12 +426,20 @@
                         <div class="horizontal-scroll">
                             <div class="scroll-list">
                                 <div class="service-item">
-                                     <ul class="service-bullets">
-                                        <li><span>🤖</span> <b>Slack & Team Workflows:</b> Keep your team in sync with automated updates, reports, and alerts.</li>
-                                        <li><span>🛒</span> <b>Shopify Store Automation:</b> Manage orders, customers, and products without the manual busywork.</li>
-                                        <li><span>✉️</span> <b>Klaviyo Email Automation:</b> Send hyper-personalized campaigns triggered by real-time customer behavior.</li>
-                                        <li><span>🧠</span> <b>AI-Powered Integration:</b> Leverage OpenAI and Google AI to process data and make smarter decisions, automatically.</li>
-                                    </ul>
+                                     <h4>🤖 Slack & Team Workflows</h4>
+                                     <p>Keep your team in sync with automated updates, reports, and alerts.</p>
+                                </div>
+                                <div class="service-item">
+                                     <h4>🛒 Shopify Store Automation</h4>
+                                     <p>Manage orders, customers, and products without the manual busywork.</p>
+                                </div>
+                                 <div class="service-item">
+                                     <h4>✉️ Klaviyo Email Automation</h4>
+                                     <p>Send hyper-personalized campaigns triggered by real-time customer behavior.</p>
+                                </div>
+                                <div class="service-item">
+                                     <h4>🧠 AI-Powered Integration</h4>
+                                     <p>Leverage OpenAI and Google AI to process data and make smarter decisions.</p>
                                 </div>
                             </div>
                         </div>
@@ -453,69 +455,38 @@
             <div class="container">
                 <h2 class="section-title">Proven Results</h2>
                 <p class="section-subtitle">See how custom automation transforms real businesses.</p>
-                <div class="results-card">
-                    <h3>Client Problem:</h3>
-                    <p>An apparel brand was losing sales because popular sizes were constantly out of stock. Their team spent over 15 hours a week manually checking inventory levels across multiple warehouses.</p>
-                    <h3>Solution:</h3>
-                    <p>I implemented an automated inventory management system that monitored sales velocity for each SKU. The system sent predictive restocking alerts to their supply chain manager via Slack when inventory was projected to run out in 14 days.</p>
-                    <h3>Result:</h3>
-                    <p>They <strong>saved 15+ hours of manual work per week</strong>, reduced "out of stock" instances by <strong>90%</strong>, and saw a <strong>25% increase in sales</strong> for their top-selling items within two months.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="comparison" class="section">
-            <div class="container">
-                <h2 class="section-title">The Right Tool for the Job</h2>
-                <p class="section-subtitle">Generic tools try to fit all businesses. My solutions are custom-built to fit yours.</p>
-                <div class="comparison-grid">
-                    <div class="comparison-column">
-                        <h3>Generic 'No-Code' Tools</h3>
-                        <ul class="comparison-list">
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>One-size-fits-all approach lacks the precision needed for e-commerce.</span>
-                            </li>
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>Limited by pre-built triggers and actions, restricting complex workflows.</span>
-                            </li>
-                             <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>Costs scale unpredictably with per-task pricing models.</span>
-                            </li>
-                             <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="#FF715B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>You still have to build, manage, and troubleshoot the automations yourself.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="comparison-column custom-solution">
-                        <h3>My Custom-Coded Solutions</h3>
-                         <ul class="comparison-list">
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>Tailor-made specifically for your brand's unique operational needs.</span>
-                            </li>
-                            <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>Infinite flexibility to handle any custom logic or integration your store requires.</span>
-                            </li>
-                             <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>A predictable, one-time investment with no recurring per-task fees.</span>
-                            </li>
-                             <li>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#4FACFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                <span>A fully managed, "done-for-you" service from development to deployment.</span>
-                            </li>
-                        </ul>
+                <div class="horizontal-scroll">
+                    <div class="scroll-list">
+                        <div class="results-card">
+                            <h3>Client Problem:</h3>
+                            <p>An apparel brand was losing sales because popular sizes were constantly out of stock, requiring 15+ hours a week of manual inventory checks.</p>
+                            <h3>Solution:</h3>
+                            <p>I implemented an automated inventory system that monitored sales velocity and sent predictive restocking alerts to their supply chain manager via Slack.</p>
+                            <h3>Result:</h3>
+                            <p>They <strong>saved 15+ hours of manual work per week</strong>, reduced "out of stock" instances by <strong>90%</strong>, and saw a <strong>25% increase in sales</strong> for top items.</p>
+                        </div>
+                        <div class="results-card">
+                            <h3>Client Problem:</h3>
+                            <p>A cosmetics company's support team was overwhelmed, with customer response times exceeding 24 hours, leading to poor reviews and lost sales.</p>
+                            <h3>Solution:</h3>
+                            <p>I deployed an AI-powered chatbot to handle 70% of common inquiries (order status, returns) and an automated system to route complex tickets to the right agent.</p>
+                            <h3>Result:</h3>
+                            <p>Average first-response time dropped to <strong>under 1 minute</strong>, customer satisfaction scores <strong>increased by 40%</strong>, and the team could focus on high-value interactions.</p>
+                        </div>
+                         <div class="results-card">
+                            <h3>Client Problem:</h3>
+                            <p>The marketing director for a home goods store spent 10 hours every week manually compiling performance reports from 5 different platforms.</p>
+                            <h3>Solution:</h3>
+                            <p>I built a custom, automated dashboard that pulled data from Shopify, Google Analytics, and all social media channels into one real-time report.</p>
+                            <h3>Result:</h3>
+                            <p>This <strong>saved 40 hours per month</strong> of manual reporting, eliminated data errors, and provided clear insights that led to a <strong>15% more efficient ad spend</strong>.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section about section-colored">
+        <section id="about" class="section">
              <div class="container">
                 <div class="about-grid">
                     <div class="about-text">
@@ -523,32 +494,20 @@
                         <p>I'm <strong>Zeyad</strong>, a Data Science and Automation specialist with over 3 years of experience helping e-commerce stores scale efficiently. I've maintained a perfect 5/5 star rating across dozens of collaborations.</p>
                         <p>My passion is building intelligent, data-driven systems that remove operational bottlenecks, saving my clients over <strong>20 hours a week</strong> and helping them increase revenue by more than <strong>60%</strong>.</p>
                     </div>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-number">5.0★</span>
-                            <span class="highlight-label">By 30+ Clients</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-number">3+</span>
-                            <span class="highlight-label">Years Experience in The Field</span>
-                        </div>
                     </div>
-                </div>
             </div>
         </section>
 
-        <section id="reviews" class="section">
+        <section id="reviews" class="section section-colored">
             <div class="container">
                 <h2 class="section-title">What My Clients Say</h2>
-                <p class="section-subtitle">Real feedback from business owners who chose to automate.</p>
-                
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="review-card">
                             <div class="review-stars">★★★★★</div>
                             <p class="review-text">"I couldn't have asked for a better data scientist to work with. Zeyad <strong>delivered exactly what I needed in less time than I expected</strong>. He was <strong>absolutely amazing across the board</strong>... If you're looking for an awesome data scientist, look no further."</p>
                             <div class="review-author">
-                                <div class="author-avatar"><img src="https://i.pravatar.cc/60?u=jeff" alt="Jeff Oxford"></div>
+                                <div class="author-avatar">JO</div>
                                 <div class="author-info">
                                     <h4>Jeff Oxford</h4>
                                     <p>180 Marketing</p>
@@ -559,7 +518,7 @@
                             <div class="review-stars">★★★★★</div>
                             <p class="review-text">"Zeyad did an outstanding job. He is <strong>highly responsive, professional, and delivered exceptional results</strong>. His technical expertise and dedication were evident throughout the work. I highly recommend Zeyad and would gladly work with him more."</p>
                             <div class="review-author">
-                                <div class="author-avatar"><img src="https://i.pravatar.cc/60?u=mateo" alt="Mateo Niksic"></div>
+                                <div class="author-avatar">MN</div>
                                 <div class="author-info">
                                     <h4>Mateo Niksic</h4>
                                     <p>Client</p>
@@ -570,7 +529,7 @@
                             <div class="review-stars">★★★★★</div>
                             <p class="review-text">"Zeyad was <strong>very thorough and patient</strong> in explaining everything to me. <strong>Everything worked perfectly</strong>. I’d definitely work with him more."</p>
                             <div class="review-author">
-                                <div class="author-avatar"><img src="https://i.pravatar.cc/60?u=joost" alt="Joost Nusselder"></div>
+                                <div class="author-avatar">JN</div>
                                 <div class="author-info">
                                     <h4>Joost Nusselder</h4>
                                     <p>Decision Tree Online Services</p>
@@ -581,7 +540,7 @@
                             <div class="review-stars">★★★★★</div>
                             <p class="review-text">"I had the pleasure of working with Zeyad, and I can confidently say that he is <strong>exceptionally responsible and dedicated to his work</strong>."</p>
                             <div class="review-author">
-                                <div class="author-avatar"><img src="https://i.pravatar.cc/60?u=sean" alt="Sean Kim"></div>
+                                <div class="author-avatar">SK</div>
                                 <div class="author-info">
                                     <h4>Sean Kim</h4>
                                     <p>AK Consulting</p>
@@ -592,7 +551,7 @@
                             <div class="review-stars">★★★★★</div>
                             <p class="review-text">"An <strong>expert in his field indeed!</strong>"</p>
                             <div class="review-author">
-                                <div class="author-avatar"><img src="https://i.pravatar.cc/60?u=lee" alt="Lee Depute"></div>
+                                <div class="author-avatar">LD</div>
                                 <div class="author-info">
                                     <h4>Lee Depute</h4>
                                     <p>Client</p>
@@ -608,7 +567,7 @@
             <div class="container">
                 <div class="calendar-card">
                     <h2 class="section-title" style="font-size: 2.8rem; margin-bottom: 2rem;">Ready to Reclaim Your Time?</h2>
-                    <p class="section-subtitle" style="margin-bottom: 2.5rem;">Book a free, no-obligation consultation call. We'll discuss your store's unique challenges and build a custom automation plan to help you scale.</p>
+                    <p class="section-subtitle" style="margin-bottom: 2.5rem; max-width: 600px;">Book a free, no-obligation consultation call. We'll discuss your store's unique challenges and build a custom automation plan to help you scale.</p>
                     <a href="https://calendly.com/zeyadsayed/30min" class="cta-button">Get My Free Consultation</a>
                 </div>
             </div>
@@ -629,7 +588,7 @@
     </footer>
 
     <script>
-        // Chart.js configuration remains the same
+        // Chart.js configuration
         const ctx = document.getElementById('impactChart').getContext('2d');
         const impactChart = new Chart(ctx, { type: 'bar', data: { labels: ['Before Automation', 'After Automation'], datasets: [{ label: 'Weekly Hours Worked', data: [50, 30], backgroundColor: 'rgba(79, 172, 254, 0.8)', borderColor: '#4facfe', borderWidth: 2, yAxisID: 'y', borderRadius: 5, }, { label: 'Monthly Revenue', data: [10000, 16000], backgroundColor: 'rgba(0, 242, 254, 0.8)', borderColor: '#00f2fe', borderWidth: 2, yAxisID: 'y1', borderRadius: 5, }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: '#ffffff', font: { size: 14 } }, grid: { color: 'rgba(255, 255, 255, 0.1)' } }, y: { display: false, beginAtZero: true }, y1: { display: false, beginAtZero: true } }, plugins: { legend: { display: true, position: 'bottom', labels: { color: '#ffffff', font: { size: 14 }, padding: 20, usePointStyle: true, pointStyle: 'rectRounded' } }, tooltip: { enabled: false } }, animation: { duration: 1500, easing: 'easeInOutQuart' } } });
         
