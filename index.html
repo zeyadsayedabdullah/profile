@@ -213,29 +213,91 @@
             color: #d0d0d0;
             font-size: 0.95rem;
         }
-        /* Results Section (Mini Case Study) */
+        /* NEW: Proven Results Styling */
         .results-card {
-            min-width: 400px; /* Set min-width for scroller */
+            min-width: 420px;
             background: rgba(30, 144, 255, 0.05);
             border: 1px solid rgba(30, 144, 255, 0.2);
             border-radius: 24px;
-            padding: 3rem;
+            padding: 2.5rem;
             text-align: left;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
-        .results-card h3 {
-            font-size: 1.2rem;
+        .result-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+        .result-item-icon {
+            font-size: 2rem;
+            margin-top: -4px;
+            line-height: 1;
+        }
+        .result-item-content h3 {
+            font-size: 1.1rem;
             font-weight: 700;
-            color: #1E90FF;
+            color: #6cb9ff;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .results-card p {
+        .result-item-content p {
+            font-size: 1rem;
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+        .result-item.final-result .result-item-content p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        /* About Section & Highlights */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .about-text p {
             font-size: 1.1rem;
             color: #c0c0c0;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            max-width: 600px;
         }
-        .results-card p:last-child {
-            margin-bottom: 0;
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .highlight-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 172, 254, 0.3);
+            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.1);
+        }
+        .highlight-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .highlight-label {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
         /* Testimonials Section */
         .review-card {
@@ -265,7 +327,6 @@
             gap: 1rem;
             margin-top: auto;
         }
-        /* Restored Avatar Style */
         .author-avatar {
             width: 60px;
             height: 60px;
@@ -325,15 +386,23 @@
         .footer-links a:hover {
             color: #4facfe;
         }
-        /* Other Styles */
-        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        .comparison-column { background: rgba(255, 255, 255, 0.02); border-radius: 24px; padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .custom-solution { border-color: rgba(79, 172, 254, 0.3); box-shadow: 0 0 50px rgba(79, 172, 254, 0.1); }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-        .about-text p { font-size: 1.1rem; color: #c0c0c0; margin-bottom: 1rem; max-width: 600px; }
-        .review-stars { color: #ffc107; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: left; }
-        @media (max-width: 900px) { .comparison-grid, .about-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .service-item, .review-card, .results-card { min-width: 280px; } .service-category, .calendar-card { padding: 2.5rem; } }
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .service-item, .review-card, .results-card { min-width: 280px; }
+            .service-category, .calendar-card { padding: 2.5rem; }
+            .about-highlights { grid-template-columns: 1fr; gap: 1rem; }
+            .results-card { min-width: 300px; }
+        }
     </style>
 </head>
 <body>
@@ -365,27 +434,13 @@
                         </div>
                         <div class="horizontal-scroll">
                             <div class="scroll-list">
-                                <div class="service-item">
-                                    <h4>📈 Automated Social Posting</h4>
-                                    <p>Grow your audience across 20+ platforms without lifting a finger.</p>
-                                </div>
-                                <div class="service-item">
-                                    <h4>🔔 Social Media Monitoring</h4>
-                                    <p>Get key insights and reports sent directly to your email or Slack.</p>
-                                </div>
-                                <div class="service-item">
-                                    <h4>🎯 Engagement Analytics</h4>
-                                    <p>Automatically identify your best content for high-ROI ad campaigns.</p>
-                                </div>
-                                <div class="service-item">
-                                    <h4>🤝 Affiliate Program Setup</h4>
-                                    <p>Mobilize customers to create user-generated content and drive sales for you.</p>
-                                </div>
+                                <div class="service-item"><h4>📈 Automated Social Posting</h4><p>Grow your audience across 20+ platforms without lifting a finger.</p></div>
+                                <div class="service-item"><h4>🔔 Social Media Monitoring</h4><p>Get key insights and reports sent directly to your email or Slack.</p></div>
+                                <div class="service-item"><h4>🎯 Engagement Analytics</h4><p>Automatically identify your best content for high-ROI ad campaigns.</p></div>
+                                <div class="service-item"><h4>🤝 Affiliate Program Setup</h4><p>Mobilize customers to create user-generated content and drive sales for you.</p></div>
                             </div>
                         </div>
-                        <div class="section-cta">
-                            <a href="#booking" class="cta-button">Automate My Marketing</a>
-                        </div>
+                        <div class="section-cta"><a href="#booking" class="cta-button">Automate My Marketing</a></div>
                     </div>
 
                     <div class="service-category">
@@ -395,27 +450,13 @@
                         </div>
                         <div class="horizontal-scroll">
                             <div class="scroll-list">
-                                <div class="service-item">
-                                    <h4>📊 Cost Analysis Reports</h4>
-                                    <p>Know your true cost-per-order in every country with automated weekly reports.</p>
-                                </div>
-                                <div class="service-item">
-                                    <h4>❗ High-Cost Order Alerts</h4>
-                                    <p>Instantly flag and handle expensive orders before they hurt your margin.</p>
-                                </div>
-                                <div class="service-item">
-                                    <h4>📦 SKU Performance Monitoring</h4>
-                                    <p>Get Slack/email alerts on your best and worst-selling products.</p>
-                                </div>
-                                <div class="service-item">
-                                    <h4>🔮 Inventory Forecasting</h4>
-                                    <p>Predict exactly when you'll run out of stock and reorder with perfect timing.</p>
-                                </div>
+                                <div class="service-item"><h4>📊 Cost Analysis Reports</h4><p>Know your true cost-per-order in every country with automated weekly reports.</p></div>
+                                <div class="service-item"><h4>❗ High-Cost Order Alerts</h4><p>Instantly flag and handle expensive orders before they hurt your margin.</p></div>
+                                <div class="service-item"><h4>📦 SKU Performance Monitoring</h4><p>Get Slack/email alerts on your best and worst-selling products.</p></div>
+                                <div class="service-item"><h4>🔮 Inventory Forecasting</h4><p>Predict exactly when you'll run out of stock and reorder with perfect timing.</p></div>
                             </div>
                         </div>
-                         <div class="section-cta">
-                            <a href="#booking" class="cta-button">Optimize My Operations</a>
-                        </div>
+                         <div class="section-cta"><a href="#booking" class="cta-button">Optimize My Operations</a></div>
                     </div>
 
                     <div class="service-category">
@@ -425,27 +466,13 @@
                         </div>
                         <div class="horizontal-scroll">
                             <div class="scroll-list">
-                                <div class="service-item">
-                                     <h4>🤖 Slack & Team Workflows</h4>
-                                     <p>Keep your team in sync with automated updates, reports, and alerts.</p>
-                                </div>
-                                <div class="service-item">
-                                     <h4>🛒 Shopify Store Automation</h4>
-                                     <p>Manage orders, customers, and products without the manual busywork.</p>
-                                </div>
-                                 <div class="service-item">
-                                     <h4>✉️ Klaviyo Email Automation</h4>
-                                     <p>Send hyper-personalized campaigns triggered by real-time customer behavior.</p>
-                                </div>
-                                <div class="service-item">
-                                     <h4>🧠 AI-Powered Integration</h4>
-                                     <p>Leverage OpenAI and Google AI to process data and make smarter decisions.</p>
-                                </div>
+                                <div class="service-item"><h4>🤖 Slack & Team Workflows</h4><p>Keep your team in sync with automated updates, reports, and alerts.</p></div>
+                                <div class="service-item"><h4>🛒 Shopify Store Automation</h4><p>Manage orders, customers, and products without the manual busywork.</p></div>
+                                <div class="service-item"><h4>✉️ Klaviyo Email Automation</h4><p>Send hyper-personalized campaigns triggered by real-time customer behavior.</p></div>
+                                <div class="service-item"><h4>🧠 AI-Powered Integration</h4><p>Leverage OpenAI and Google AI to process data and make smarter decisions.</p></div>
                             </div>
                         </div>
-                         <div class="section-cta">
-                            <a href="#booking" class="cta-button">Integrate My Tools</a>
-                        </div>
+                         <div class="section-cta"><a href="#booking" class="cta-button">Integrate My Tools</a></div>
                     </div>
                 </div>
             </div>
@@ -458,28 +485,73 @@
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
                         <div class="results-card">
-                            <h3>Client Problem:</h3>
-                            <p>An apparel brand was losing sales because popular sizes were constantly out of stock, requiring 15+ hours a week of manual inventory checks.</p>
-                            <h3>Solution:</h3>
-                            <p>I implemented an automated inventory system that monitored sales velocity and sent predictive restocking alerts to their supply chain manager via Slack.</p>
-                            <h3>Result:</h3>
-                            <p>They <strong>saved 15+ hours of manual work per week</strong>, reduced "out of stock" instances by <strong>90%</strong>, and saw a <strong>25% increase in sales</strong> for top items.</p>
+                            <div class="result-item">
+                                <span class="result-item-icon">❓</span>
+                                <div class="result-item-content">
+                                    <h3>Client Problem</h3>
+                                    <p>An apparel brand was losing sales from constant stockouts, requiring 15+ hours a week of manual inventory checks.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-item-icon">💡</span>
+                                <div class="result-item-content">
+                                    <h3>Solution</h3>
+                                    <p>I built an automated system that monitored sales velocity and sent predictive restocking alerts directly to their supply chain manager.</p>
+                                </div>
+                            </div>
+                            <div class="result-item final-result">
+                                <span class="result-item-icon">✨</span>
+                                <div class="result-item-content">
+                                    <h3>Result</h3>
+                                    <p>They <strong>saved 15+ hours/week</strong>, reduced stockouts by <strong>90%</strong>, and saw a <strong>25% sales increase</strong> on top items.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="results-card">
-                            <h3>Client Problem:</h3>
-                            <p>A cosmetics company's support team was overwhelmed, with customer response times exceeding 24 hours, leading to poor reviews and lost sales.</p>
-                            <h3>Solution:</h3>
-                            <p>I deployed an AI-powered chatbot to handle 70% of common inquiries (order status, returns) and an automated system to route complex tickets to the right agent.</p>
-                            <h3>Result:</h3>
-                            <p>Average first-response time dropped to <strong>under 1 minute</strong>, customer satisfaction scores <strong>increased by 40%</strong>, and the team could focus on high-value interactions.</p>
+                            <div class="result-item">
+                                <span class="result-item-icon">❓</span>
+                                <div class="result-item-content">
+                                    <h3>Client Problem</h3>
+                                    <p>A cosmetics company's support team was overwhelmed, with customer response times exceeding 24 hours, leading to poor reviews.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-item-icon">💡</span>
+                                <div class="result-item-content">
+                                    <h3>Solution</h3>
+                                    <p>I deployed an AI chatbot to handle 70% of common inquiries and an automated system to route complex tickets to the right agent.</p>
+                                </div>
+                            </div>
+                            <div class="result-item final-result">
+                                <span class="result-item-icon">✨</span>
+                                <div class="result-item-content">
+                                    <h3>Result</h3>
+                                    <p>First-response time dropped to <strong>under 1 minute</strong> and customer satisfaction scores <strong>increased by 40%</strong>.</p>
+                                </div>
+                            </div>
                         </div>
                          <div class="results-card">
-                            <h3>Client Problem:</h3>
-                            <p>The marketing director for a home goods store spent 10 hours every week manually compiling performance reports from 5 different platforms.</p>
-                            <h3>Solution:</h3>
-                            <p>I built a custom, automated dashboard that pulled data from Shopify, Google Analytics, and all social media channels into one real-time report.</p>
-                            <h3>Result:</h3>
-                            <p>This <strong>saved 40 hours per month</strong> of manual reporting, eliminated data errors, and provided clear insights that led to a <strong>15% more efficient ad spend</strong>.</p>
+                            <div class="result-item">
+                                <span class="result-item-icon">❓</span>
+                                <div class="result-item-content">
+                                    <h3>Client Problem</h3>
+                                    <p>A marketing director spent 10 hours every week manually compiling performance reports from 5 different platforms.</p>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-item-icon">💡</span>
+                                <div class="result-item-content">
+                                    <h3>Solution</h3>
+                                    <p>I built a custom dashboard that pulled data from Shopify, Google Analytics, and all social media channels into one real-time report.</p>
+                                </div>
+                            </div>
+                            <div class="result-item final-result">
+                                <span class="result-item-icon">✨</span>
+                                <div class="result-item-content">
+                                    <h3>Result</h3>
+                                    <p><strong>Saved 40 hours per month</strong> of manual work and provided clear insights that led to a <strong>15% more efficient ad spend</strong>.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -494,7 +566,17 @@
                         <p>I'm <strong>Zeyad</strong>, a Data Science and Automation specialist with over 3 years of experience helping e-commerce stores scale efficiently. I've maintained a perfect 5/5 star rating across dozens of collaborations.</p>
                         <p>My passion is building intelligent, data-driven systems that remove operational bottlenecks, saving my clients over <strong>20 hours a week</strong> and helping them increase revenue by more than <strong>60%</strong>.</p>
                     </div>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">5.0★</span>
+                            <span class="highlight-label">By 30+ Clients</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">3+</span>
+                            <span class="highlight-label">Years Experience in The Field</span>
+                        </div>
                     </div>
+                </div>
             </div>
         </section>
 
@@ -503,61 +585,11 @@
                 <h2 class="section-title">What My Clients Say</h2>
                 <div class="horizontal-scroll">
                     <div class="scroll-list">
-                        <div class="review-card">
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"I couldn't have asked for a better data scientist to work with. Zeyad <strong>delivered exactly what I needed in less time than I expected</strong>. He was <strong>absolutely amazing across the board</strong>... If you're looking for an awesome data scientist, look no further."</p>
-                            <div class="review-author">
-                                <div class="author-avatar">JO</div>
-                                <div class="author-info">
-                                    <h4>Jeff Oxford</h4>
-                                    <p>180 Marketing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"Zeyad did an outstanding job. He is <strong>highly responsive, professional, and delivered exceptional results</strong>. His technical expertise and dedication were evident throughout the work. I highly recommend Zeyad and would gladly work with him more."</p>
-                            <div class="review-author">
-                                <div class="author-avatar">MN</div>
-                                <div class="author-info">
-                                    <h4>Mateo Niksic</h4>
-                                    <p>Client</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"Zeyad was <strong>very thorough and patient</strong> in explaining everything to me. <strong>Everything worked perfectly</strong>. I’d definitely work with him more."</p>
-                            <div class="review-author">
-                                <div class="author-avatar">JN</div>
-                                <div class="author-info">
-                                    <h4>Joost Nusselder</h4>
-                                    <p>Decision Tree Online Services</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"I had the pleasure of working with Zeyad, and I can confidently say that he is <strong>exceptionally responsible and dedicated to his work</strong>."</p>
-                            <div class="review-author">
-                                <div class="author-avatar">SK</div>
-                                <div class="author-info">
-                                    <h4>Sean Kim</h4>
-                                    <p>AK Consulting</p>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="review-card">
-                            <div class="review-stars">★★★★★</div>
-                            <p class="review-text">"An <strong>expert in his field indeed!</strong>"</p>
-                            <div class="review-author">
-                                <div class="author-avatar">LD</div>
-                                <div class="author-info">
-                                    <h4>Lee Depute</h4>
-                                    <p>Client</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I couldn't have asked for a better data scientist to work with. Zeyad <strong>delivered exactly what I needed in less time than I expected</strong>. He was <strong>absolutely amazing across the board</strong>... If you're looking for an awesome data scientist, look no further."</p><div class="review-author"><div class="author-avatar">JO</div><div class="author-info"><h4>Jeff Oxford</h4><p>180 Marketing</p></div></div></div>
+                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Zeyad did an outstanding job. He is <strong>highly responsive, professional, and delivered exceptional results</strong>. His technical expertise and dedication were evident throughout the work. I highly recommend Zeyad and would gladly work with him more."</p><div class="review-author"><div class="author-avatar">MN</div><div class="author-info"><h4>Mateo Niksic</h4><p>Client</p></div></div></div>
+                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Zeyad was <strong>very thorough and patient</strong> in explaining everything to me. <strong>Everything worked perfectly</strong>. I’d definitely work with him more."</p><div class="review-author"><div class="author-avatar">JN</div><div class="author-info"><h4>Joost Nusselder</h4><p>Decision Tree Online Services</p></div></div></div>
+                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I had the pleasure of working with Zeyad, and I can confidently say that he is <strong>exceptionally responsible and dedicated to his work</strong>."</p><div class="review-author"><div class="author-avatar">SK</div><div class="author-info"><h4>Sean Kim</h4><p>AK Consulting</p></div></div></div>
+                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"An <strong>expert in his field indeed!</strong>"</p><div class="review-author"><div class="author-avatar">LD</div><div class="author-info"><h4>Lee Depute</h4><p>Client</p></div></div></div>
                     </div>
                 </div>
             </div>
