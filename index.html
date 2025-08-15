@@ -242,6 +242,7 @@
             font-size: 2rem;
             margin-top: -4px;
             line-height: 1;
+            flex-shrink: 0;
         }
         .result-item-content h3 {
             font-size: 1.1rem;
@@ -499,28 +500,40 @@
                 margin-right: -16px;
             }
 
-            /* --- NEW: Proven Results Mobile Fix --- */
+            /* --- IMPROVED: Proven Results Mobile Layout --- */
             .results-card {
                 padding: 2rem 1.5rem;
+                gap: 1.5rem;
             }
             .result-item {
-                flex-direction: column; /* Stack icon on top of text */
-                align-items: center;   /* Center the items horizontally */
-                text-align: center;    /* Center the text content */
-                gap: 0.75rem;          /* Adjust gap for vertical stacking */
+                display: block; /* Stack vertically */
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            .result-item:last-child {
+                margin-bottom: 0;
             }
             .result-item-icon {
-                font-size: 2rem;      
-                margin-top: 0;
-                margin-bottom: 0.5rem; /* Add space below the icon */
+                display: block;
+                font-size: 2.5rem;
+                margin: 0 auto 0.75rem auto;
+                text-align: center;
+            }
+            .result-item-content {
+                text-align: center;
             }
             .result-item-content h3 {
-                font-size: 1.1rem;      
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
             }
             .result-item-content p {
-                font-size: 0.95rem;     
+                font-size: 0.95rem;
+                line-height: 1.5;
             }
-            /* --- End of Fix --- */
+            .result-item.final-result .result-item-content p {
+                font-size: 1rem;
+            }
+            /* --- End of Improved Mobile Layout --- */
 
             #about .section-title {
                 font-size: 2.5rem;
@@ -541,7 +554,7 @@
         }
     </style>
     <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Re Ms Fs Pe Rs Cs capture Ve calculateEventProperties Ds register register_once register_for_session unregister unregister_for_session zs getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ls As createPersonProfile Ns Is Us opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing is_capturing clear_opt_in_out_capturing Os debug I js getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Re Ms Fs Pe Rs Cs capture Ve calculateEventProperties Ds register register_once register_for_session unregister unregister_for_session zs getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveyLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ls As createPersonProfile Ns Is Us opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing is_capturing clear_opt_in_out_capturing Os debug I js getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
     posthog.init('phc_ykz67VNxaps6hf1ZOZXANZigBB5HCtqhLjkqSdoBSRQ', {
         api_host: 'https://us.i.posthog.com',
         defaults: '2025-05-24',
@@ -641,7 +654,7 @@
                             <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>They identified their top-performing formats, doubled down on winning content, and boosted sales by <strong>40% in three months</strong>.</p></div></div>
                         </div>
                         <div class="results-card">
-                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store’s ad team wasted hours each week manually finding high-performing posts to repurpose into ads.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store's ad team wasted hours each week manually finding high-performing posts to repurpose into ads.</p></div></div>
                             <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I created an automation that detected the most engaging posts/videos in real time and sent them to Slack, Email, and Google Drive, ready for ad campaigns.</p></div></div>
                             <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>The ad team cut <strong>8+ hours/week</strong> of manual work, launched ad creatives <strong>3x faster</strong>.</p></div></div>
                         </div>
@@ -651,7 +664,7 @@
                             <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>UGC posts increased by <strong>500%</strong>, affiliate-driven sales accounted for <strong>22% of monthly revenue</strong>, and customer lifetime value rose by <strong>35%</strong>.</p></div></div>
                         </div>
                         <div class="results-card">
-                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store faced frequent stockouts because they didn’t know when SKUs were running low until it was too late.</p></div></div>
+                            <div class="result-item"><span class="result-item-icon">❓</span><div class="result-item-content"><h3>Client Problem</h3><p>An e-commerce store faced frequent stockouts because they didn't know when SKUs were running low until it was too late.</p></div></div>
                             <div class="result-item"><span class="result-item-icon">💡</span><div class="result-item-content"><h3>Solution</h3><p>I implemented a predictive inventory tracker that monitored sales velocity, forecasted days left for each SKU, and alerted the supply chain manager via Slack/Email when items approached a threshold.</p></div></div>
                             <div class="result-item final-result"><span class="result-item-icon">✨</span><div class="result-item-content"><h3>Result</h3><p>Stockouts dropped by <strong>85%</strong>, fulfillment times improved, and top SKU sales grew by <strong>20%</strong> from better availability.</p></div></div>
                         </div>
@@ -704,7 +717,7 @@
                     <div class="scroll-list">
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I couldn't have asked for a better data scientist to work with. Zeyad <strong>delivered exactly what I needed in less time than I expected</strong>. He was <strong>absolutely amazing across the board</strong>... If you're looking for an awesome data scientist, look no further."</p><div class="review-author"><div class="author-avatar">JO</div><div class="author-info"><h4>Jeff Oxford</h4><p>180 Marketing</p></div></div></div>
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Zeyad did an outstanding job. He is <strong>highly responsive, professional, and delivered exceptional results</strong>. His technical expertise and dedication were evident throughout the work. I highly recommend Zeyad and would gladly work with him more."</p><div class="review-author"><div class="author-avatar">MN</div><div class="author-info"><h4>Mateo Niksic</h4><p>Client</p></div></div></div>
-                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Zeyad was <strong>very thorough and patient</strong> in explaining everything to me. <strong>Everything worked perfectly</strong>. I’d definitely work with him more."</p><div class="review-author"><div class="author-avatar">JN</div><div class="author-info"><h4>Joost Nusselder</h4><p>Decision Tree Online Services</p></div></div></div>
+                        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Zeyad was <strong>very thorough and patient</strong> in explaining everything to me. <strong>Everything worked perfectly</strong>. I'd definitely work with him more."</p><div class="review-author"><div class="author-avatar">JN</div><div class="author-info"><h4>Joost Nusselder</h4><p>Decision Tree Online Services</p></div></div></div>
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I had the pleasure of working with Zeyad, and I can confidently say that he is <strong>exceptionally responsible and dedicated to his work</strong>."</p><div class="review-author"><div class="author-avatar">SK</div><div class="author-info"><h4>Sean Kim</h4><p>AK Consulting</p></div></div></div>
                         <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"An <strong>expert in his field indeed!</strong>"</p><div class="review-author"><div class="author-avatar">LD</div><div class="author-info"><h4>Lee Depute</h4><p>Client</p></div></div></div>
                     </div>
@@ -731,7 +744,7 @@
                 <a href="#results">Results</a>
                 <a href="#reviews">Reviews</a>
                 <a href="#about">About</a>
-                <a href="<https://mail.google.com/mail/?view=cm&fs=1&to=zeyaddatascientist@gmail.com>"
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zeyaddatascientist@gmail.com" target="_blank">Contact</a>
             </div>
             <p>&copy; 2025 Zeyad - E-commerce Automation Expert. All rights reserved.</p>
         </div>
