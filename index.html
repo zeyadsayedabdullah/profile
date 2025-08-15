@@ -439,9 +439,9 @@
                 font-size: 1.1rem;
             }
             .service-item, .review-card, .results-card {
-                min-width: 320px;
+                min-width: calc(100vw - 80px); /* Adjust card width for this breakpoint */
             }
-            .results-card, .review-card {
+            .review-card {
                 padding: 2rem;
             }
             .scroll-list {
@@ -463,6 +463,29 @@
             .footer-links {
                 gap: 1.5rem;
             }
+
+            /* --- NEW: Proven Results Mobile Layout Fix (Applied to all phones/small tablets) --- */
+            .results-card {
+                padding: 2rem 1.5rem;
+            }
+            .result-item {
+                flex-direction: column; /* Stack icon on top of text */
+                align-items: center;   /* Center the items horizontally */
+                text-align: center;    /* Center the text content */
+                gap: 0.75rem;          /* Adjust gap for vertical stacking */
+            }
+            .result-item-icon {
+                font-size: 2rem;      
+                margin-top: 0;
+                margin-bottom: 0.5rem; /* Add space below the icon */
+            }
+            .result-item-content h3 {
+                font-size: 1.1rem;      
+            }
+            .result-item-content p {
+                font-size: 0.95rem;     
+            }
+            /* --- End of Fix --- */
         }
 
         @media (max-width: 480px) {
@@ -498,30 +521,6 @@
                 margin-left: -16px;
                 margin-right: -16px;
             }
-
-            /* --- NEW: Proven Results Mobile Fix --- */
-            .results-card {
-                padding: 2rem 1.5rem;
-            }
-            .result-item {
-                flex-direction: column; /* Stack icon on top of text */
-                align-items: center;   /* Center the items horizontally */
-                text-align: center;    /* Center the text content */
-                gap: 0.75rem;          /* Adjust gap for vertical stacking */
-            }
-            .result-item-icon {
-                font-size: 2rem;      
-                margin-top: 0;
-                margin-bottom: 0.5rem; /* Add space below the icon */
-            }
-            .result-item-content h3 {
-                font-size: 1.1rem;      
-            }
-            .result-item-content p {
-                font-size: 0.95rem;     
-            }
-            /* --- End of Fix --- */
-
             #about .section-title {
                 font-size: 2.5rem;
             }
