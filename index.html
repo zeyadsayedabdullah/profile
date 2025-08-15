@@ -466,11 +466,12 @@
 
             /* --- GUARANTEED FIX for "Proven Results" on Mobile --- */
             .results-card {
+                background: hotpink !important; /* TEST: If you see pink, the new CSS is working. */
                 gap: 2.5rem !important; 
                 padding: 2rem 1.5rem !important;
             }
             .result-item {
-                display: block !important; /* This forces the vertical layout */
+                display: block !important; /* Forces the vertical (tall) layout */
                 text-align: left !important;
             }
             .result-item-icon {
@@ -485,7 +486,7 @@
             .result-item-content h3 {
                 font-size: 1rem !important;
                 font-weight: 700 !important;
-                color: #4facfe !important;
+                color: #ffffff !important; /* White heading on pink background for contrast */
                 text-transform: uppercase !important;
                 letter-spacing: 0.8px !important;
                 margin-bottom: 0.5rem !important;
@@ -493,11 +494,12 @@
             .result-item-content p {
                 font-size: 0.95rem !important;
                 line-height: 1.7 !important;
+                color: #212121 !important; /* Dark text on pink background for contrast */
             }
             .result-item.final-result .result-item-content p {
                 font-size: 1.05rem !important;
                 font-weight: 500 !important;
-                color: #ffffff !important; 
+                color: #000000 !important; 
             }
             /* --- End of Fix --- */
         }
